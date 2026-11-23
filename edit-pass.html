@@ -1,0 +1,60 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>The edit pass: turning a slop draft about AI pentesting into something a red team lead would finish · Tiwalade Joanna Okedara-Kalu</title><style>
+  :root { --ink:#0E1A3A; --text:#2b3245; --muted:#6b7280; --line:#e5e8ef; --accent:#2F6BFF; --soft:#EEF3FF; }
+  * { box-sizing:border-box }
+  body { margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--text); background:#fff; line-height:1.6; font-size:17px }
+  .wrap { max-width:760px; margin:0 auto; padding:0 24px }
+  header { padding:72px 0 40px; display:flex; gap:28px; align-items:center }
+  header img { width:112px; height:112px; border-radius:50%; object-fit:cover; flex:none }
+  h1 { margin:0; color:var(--ink); font-size:34px; line-height:1.15; letter-spacing:-.02em }
+  .role { margin:8px 0 0; color:var(--accent); font-weight:600 }
+  .links { margin-top:12px; font-size:15px }
+  .links a { color:var(--ink); margin-right:16px }
+  h2 { color:var(--ink); font-size:14px; letter-spacing:.08em; text-transform:uppercase; margin:48px 0 14px; padding-top:24px; border-top:1px solid var(--line) }
+  p { margin:0 0 14px }
+  .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0 4px }
+  .stat { background:var(--soft); border-radius:10px; padding:14px 16px }
+  .stat b { display:block; color:var(--accent); font-size:24px }
+  .stat span { font-size:14px; color:var(--muted) }
+  .item { margin:0 0 22px }
+  .item h3 { margin:0; font-size:18px; color:var(--ink) }
+  .item h3 a { color:var(--ink); text-decoration-color:var(--accent); text-underline-offset:3px }
+  .meta { font-size:14px; color:var(--muted); margin:2px 0 6px }
+  ul { padding-left:20px; margin:0 0 14px } li { margin:4px 0 }
+  footer { margin:56px 0 64px; padding-top:24px; border-top:1px solid var(--line); font-size:15px; color:var(--muted) }
+  a { color:var(--accent) }
+  @media (max-width:600px) { header { flex-direction:column; align-items:flex-start; padding-top:48px } .stats { grid-template-columns:1fr } h1 { font-size:28px } }
+
+article h1{font-size:30px;margin:56px 0 8px} article h2{text-transform:none;letter-spacing:0;font-size:22px;border:0;padding-top:8px;margin-top:36px} blockquote{margin:16px 0;padding:12px 18px;background:#f6f7fb;border-left:3px solid var(--accent);color:#374151} hr{border:0;border-top:1px solid var(--line);margin:40px 0} .back{display:inline-block;margin-top:32px;font-size:15px}</style></head>
+<body><div class="wrap"><a class="back" href="index.html">← Tiwalade Joanna Okedara-Kalu</a><article><h1>The edit pass: turning a slop draft about AI pentesting into something a red team lead would finish</h1>
+<p><em>A spec piece for my XBOW application, showing how I edit. The "before" is a draft I wrote on purpose in the style that LLMs and rushed marketing teams produce. It is not XBOW's writing. The "after" uses only claims that are public and sourced.</em></p>
+<h2>Before</h2>
+<blockquote>
+<p>In today's rapidly evolving threat landscape, organizations face unprecedented cybersecurity challenges. Cutting-edge AI-powered penetration testing solutions are revolutionizing the way businesses protect their digital assets. By leveraging advanced machine learning algorithms, these innovative platforms can identify vulnerabilities faster than ever before, empowering security teams to stay ahead of sophisticated threat actors. With AI pentesting, organizations can achieve comprehensive coverage, reduce risk, and unlock unparalleled peace of mind. It's not just a tool; it's a game-changer for the future of security.</p>
+</blockquote>
+<p>It's 80 words. Read it again and try to find one thing a CISO could act on, or one claim a researcher could check. There isn't one.</p>
+<h2>What I'd flag</h2>
+<ol>
+<li><strong>Throat-clearing opener.</strong> "In today's rapidly evolving threat landscape" tells a security reader nothing they didn't know when they woke up. Cut it.</li>
+<li><strong>Adjectives doing the work of evidence.</strong> "Cutting-edge", "innovative", "unparalleled", "sophisticated". Every one is a claim with no proof attached. A skeptical reader treats each one as a reason to stop trusting the piece.</li>
+<li><strong>"Identify vulnerabilities faster than ever before."</strong> Faster than what, measured how? And "identify" is the wrong verb for XBOW's whole argument. Finding a possible vulnerability is the cheap part. Proving it is the point.</li>
+<li><strong>"Comprehensive coverage".</strong> Of what? Which applications, which classes of bug, how often? Unscoped coverage claims are the kind the product may not keep. Cut, or make specific.</li>
+<li><strong>"Peace of mind".</strong> No security leader buys peace of mind. They buy evidence they can take to engineering and to the board.</li>
+<li><strong>"Not just a tool; it's a game-changer."</strong> The single most recognisable AI-writing pattern there is. Delete on sight.</li>
+</ol>
+<h2>After</h2>
+<blockquote>
+<p>In 2024, XBOW matched a principal pentester's 40-hour manual assessment in 28 minutes. Speed is the easy part to sell. The harder part is what arrives at the end.</p>
+<p>Most scanners hand you possibilities. XBOW hands you proof: every finding comes with the working exploit, the request, the response and the steps to reproduce it. Engineering can't argue with it, and once a fix ships, XBOW runs the same attack again to confirm the issue is closed.</p>
+<p>A finding without a working exploit is a hypothesis. That's the standard we test to.</p>
+</blockquote>
+<p>It's 92 words, about the same length. Every sentence is either a specific, sourced claim or a clear position.</p>
+<h2>The checklist I ran</h2>
+<ul>
+<li>Does the first sentence say something specific and true?</li>
+<li>Is every number current, verified and sourced?</li>
+<li>Is every claim something the product actually does today?</li>
+<li>Would a practitioner respect it, and could a CISO follow it?</li>
+<li>Does it sound like one company, not like every company?</li>
+<li>Is there a single sentence an LLM would have written by default? If so, rewrite it.</li>
+</ul>
+<p><strong>Sources for the "after" version:</strong> XBOW, "We Ran 1,060 Autonomous Attacks: What We Learned" (the 40-hour vs 28-minute comparison); XBOW Overview brief (proof with every finding, re-testing fixes); XBOW, "A Vulnerability Is a Hypothesis. An Exploit Is the Proof."</p></article><footer>Written by Tiwalade Joanna Okedara-Kalu · <a href="mailto:tiwaladejokedara@gmail.com">tiwaladejokedara@gmail.com</a></footer></div></body></html>
